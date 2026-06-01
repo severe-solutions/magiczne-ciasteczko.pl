@@ -1,407 +1,422 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Magiczne Ciasteczko Wróżby | Twój Moment Zen</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Magiczne Ciasteczko Wróżby | Twój Moment Zen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap"
+    rel="stylesheet">
 
-<style>
-:root {
---bg-color: #fcf8f2;
---cookie-color: #e5b26d;
---cookie-shadow: #c9934e;
---text-dark: #2c2520;
---gold: #c5a059;
---paper-bg: #fffdfa;
-}
+  <style>
+    :root {
+      --bg-color: #fcf8f2;
+      --cookie-color: #e5b26d;
+      --cookie-shadow: #c9934e;
+      --text-dark: #2c2520;
+      --gold: #c5a059;
+      --paper-bg: #fffdfa;
+    }
 
-* {
-box-sizing: border-box;
-margin: 0;
-padding: 0;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-body {
-font-family: 'Montserrat', sans-serif;
-background: radial-gradient(circle at center, #ffffff 0%, var(--bg-color) 100%);
-min-height: 100vh;
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-align-items: center;
-overflow: hidden;
-color: var(--text-dark);
-padding: 2rem;
-}
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: radial-gradient(circle at center, #ffffff 0%, var(--bg-color) 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      overflow: hidden;
+      color: var(--text-dark);
+      padding: 2rem;
+    }
 
-header {
-text-align: center;
-max-width: 600px;
-z-index: 10;
-}
+    header {
+      text-align: center;
+      max-width: 600px;
+      z-index: 10;
+    }
 
-header h1 {
-font-family: 'Cormorant Garamond', serif;
-font-size: 2.5rem;
-font-weight: 600;
-letter-spacing: 1px;
-margin-bottom: 0.5rem;
-color: var(--text-dark);
-}
+    header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+      color: var(--text-dark);
+    }
 
-header p {
-font-size: 0.9rem;
-text-transform: uppercase;
-letter-spacing: 2px;
-color: var(--gold);
-font-weight: 500;
-}
+    header p {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gold);
+      font-weight: 500;
+    }
 
-/* Główny kontener sceny */
-.cookie-container {
-position: relative;
-width: 350px;
-height: 350px;
-display: flex;
-justify-content: center;
-align-items: center;
-cursor: pointer;
-perspective: 1000px;
-}
+    .cookie-container {
+      position: relative;
+      width: 350px;
+      height: 350px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      perspective: 1000px;
+    }
 
-/* Stylizacja Ciasteczka (CSS Art) */
-.fortune-cookie {
-position: relative;
-width: 220px;
-height: 180px;
-transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-display: flex;
-justify-content: center;
-align-items: center;
-z-index: 5;
-}
+    .fortune-cookie {
+      position: relative;
+      width: 220px;
+      height: 180px;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 5;
+    }
 
-.cookie-container:hover .fortune-cookie:not(.opened) {
-transform: scale(1.08) rotate(2deg);
-}
+    .cookie-container:hover .fortune-cookie:not(.opened) {
+      transform: scale(1.08) rotate(2deg);
+    }
 
-.cookie-container:active .fortune-cookie:not(.opened) {
-transform: scale(0.98);
-}
+    .cookie-container:active .fortune-cookie:not(.opened) {
+      transform: scale(0.98);
+    }
 
-/* Połówki ciasteczka */
-.cookie-left, .cookie-right {
-position: absolute;
-width: 140px;
-height: 180px;
-background: var(--cookie-color);
-border-radius: 120px 40px 40px 120px;
-box-shadow: inset -15px 0 25px var(--cookie-shadow), 0 10px 20px rgba(0,0,0,0.08);
-transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-top: 0;
-}
+    .cookie-left,
+    .cookie-right {
+      position: absolute;
+      width: 140px;
+      height: 180px;
+      background: var(--cookie-color);
+      border-radius: 120px 40px 40px 120px;
+      box-shadow: inset -15px 0 25px var(--cookie-shadow), 0 10px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      top: 0;
+    }
 
-.cookie-left {
-left: 0;
-transform-origin: left center;
-}
+    .cookie-left {
+      left: 0;
+      transform-origin: left center;
+    }
 
-.cookie-right {
-right: 0;
-border-radius: 40px 120px 120px 40px;
-box-shadow: inset 15px 0 25px var(--cookie-shadow), 0 10px 20px rgba(0,0,0,0.08);
-transform-origin: right center;
-}
+    .cookie-right {
+      right: 0;
+      border-radius: 40px 120px 120px 40px;
+      box-shadow: inset 15px 0 25px var(--cookie-shadow), 0 10px 20px rgba(0, 0, 0, 0.08);
+      transform-origin: right center;
+    }
 
-/* Charakterystyczne zgięcie ciasteczka fortune */
-.cookie-left::after, .cookie-right::after {
-content: '';
-position: absolute;
-width: 50px;
-height: 50px;
-background: var(--cookie-shadow);
-opacity: 0.3;
-border-radius: 50%;
-top: 65px;
-}
-.cookie-left::after { right: 10px; }
-.cookie-right::after { left: 10px; }
+    .cookie-left::after,
+    .cookie-right::after {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background: var(--cookie-shadow);
+      opacity: 0.3;
+      border-radius: 50%;
+      top: 65px;
+    }
 
-/* Stan po otwarciu */
-.fortune-cookie.opened .cookie-left {
-transform: translateX(-120px) rotate(-35deg);
-opacity: 0.75;
-}
+    .cookie-left::after {
+      right: 10px;
+    }
 
-.fortune-cookie.opened .cookie-right {
-transform: translateX(120px) rotate(35deg);
-opacity: 0.75;
-}
+    .cookie-right::after {
+      left: 10px;
+    }
 
-/* Karteczka z wróżbą */
-.fortune-paper {
-position: absolute;
-width: 280px;
-max-height: 0;
-background: var(--paper-bg);
-box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-border-left: 3px solid var(--gold);
-border-right: 3px solid var(--gold);
-padding: 0 1.5rem;
-text-align: center;
-opacity: 0;
-transform: scale(0.4) rotate(-5deg);
-transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
-transition-delay: 0.2s;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-z-index: 2;
-overflow: hidden;
-}
+    .fortune-cookie.opened .cookie-left {
+      transform: translateX(-120px) rotate(-35deg);
+      opacity: 0.75;
+    }
 
-.fortune-paper.reveal {
-opacity: 1;
-max-height: 180px;
-padding: 1.5rem;
-transform: scale(1) rotate(0deg);
-box-shadow: 0 10px 30px rgba(197, 160, 89, 0.15), 0 1px 3px rgba(0,0,0,0.02);
-}
+    .fortune-cookie.opened .cookie-right {
+      transform: translateX(120px) rotate(35deg);
+      opacity: 0.75;
+    }
 
-.fortune-text {
-font-family: 'Cormorant Garamond', serif;
-font-size: 1.25rem;
-font-weight: 600;
-line-height: 1.5;
-color: var(--text-dark);
-font-style: italic;
-}
+    .fortune-paper {
+      position: absolute;
+      width: 280px;
+      max-height: 0;
+      background: var(--paper-bg);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      border-left: 3px solid var(--gold);
+      border-right: 3px solid var(--gold);
+      padding: 0 1.5rem;
+      text-align: center;
+      opacity: 0;
+      transform: scale(0.4) rotate(-5deg);
+      transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+      transition-delay: 0.2s;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 2;
+      overflow: hidden;
+    }
 
-.fortune-decor {
-margin-top: 0.75rem;
-color: var(--gold);
-font-size: 0.8rem;
-letter-spacing: 3px;
-}
+    .fortune-paper.reveal {
+      opacity: 1;
+      max-height: 180px;
+      padding: 1.5rem;
+      transform: scale(1) rotate(0deg);
+      box-shadow: 0 10px 30px rgba(197, 160, 89, 0.15), 0 1px 3px rgba(0, 0, 0, 0.02);
+    }
 
-/* Przycisk resetu */
-.reset-btn {
-background: none;
-border: 1px solid var(--gold);
-color: var(--text-dark);
-padding: 0.75rem 2rem;
-font-family: 'Montserrat', sans-serif;
-font-size: 0.8rem;
-text-transform: uppercase;
-letter-spacing: 2px;
-cursor: pointer;
-border-radius: 50px;
-transition: all 0.3s ease;
-opacity: 0;
-transform: translateY(20px);
-pointer-events: none;
-margin-top: 1rem;
-}
+    .fortune-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.5;
+      color: var(--text-dark);
+      font-style: italic;
+    }
 
-.reset-btn.show {
-opacity: 1;
-transform: translateY(0);
-pointer-events: auto;
-}
+    .fortune-decor {
+      margin-top: 0.75rem;
+      color: var(--gold);
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+    }
 
-.reset-btn:hover {
-background: var(--gold);
-color: white;
-box-shadow: 0 5px 15px rgba(197, 160, 89, 0.3);
-}
+    /* Przycisk resetu */
+    .reset-btn {
+      background: none;
+      border: 1px solid var(--gold);
+      color: var(--text-dark);
+      padding: 0.75rem 2rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      cursor: pointer;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+      pointer-events: none;
+      margin-top: 1rem;
+    }
 
-footer {
-font-size: 0.75rem;
-letter-spacing: 1px;
-color: #a0958d;
-text-align: center;
-}
+    .reset-btn.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
 
-/* Delikatna animacja unoszenia ciasteczka na start */
-@keyframes float {
-0% { transform: translateY(0px); }
-50% { transform: translateY(-8px); }
-100% { transform: translateY(0px); }
-}
+    .reset-btn:hover {
+      background: var(--gold);
+      color: white;
+      box-shadow: 0 5px 15px rgba(197, 160, 89, 0.3);
+    }
 
-.fortune-cookie:not(.opened) {
-animation: float 4s ease-in-out infinite;
-}
-</style>
+    footer {
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      color: #a0958d;
+      text-align: center;
+    }
+
+    /* Delikatna animacja unoszenia ciasteczka na start */
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    .fortune-cookie:not(.opened) {
+      animation: float 4s ease-in-out infinite;
+    }
+  </style>
 </head>
+
 <body>
 
-<header>
-<h1>Magiczne Ciasteczko</h1>
-<p>Dotknij, aby poznać swoją myśl na dziś</p>
-</header>
+  <header>
+    <h1>Magiczne Ciasteczko</h1>
+    <p>Dotknij, aby poznać swoją myśl na dziś</p>
+  </header>
 
-<div class="cookie-container" id="stage">
-<div class="fortune-cookie" id="cookie">
-<div class="cookie-left"></div>
-<div class="cookie-right"></div>
-</div>
+  <div class="cookie-container" id="stage">
+    <div class="fortune-cookie" id="cookie">
+      <div class="cookie-left"></div>
+      <div class="cookie-right"></div>
+    </div>
 
-<div class="fortune-paper" id="paper">
-<div class="fortune-text" id="fortuneText">Twoja myśl za chwilę się pojawi...</div>
-<div class="fortune-decor">✦ 𓆸 ✦</div>
-</div>
-</div>
+    <div class="fortune-paper" id="paper">
+      <div class="fortune-text" id="fortuneText">Twoja myśl za chwilę się pojawi...</div>
+      <div class="fortune-decor">✦ 𓆸 ✦</div>
+    </div>
+  </div>
 
-<button class="reset-btn" id="resetBtn">Złam kolejne ciasteczko</button>
+  <button class="reset-btn" id="resetBtn">Złam kolejne ciasteczko</button>
 
-<footer>
-&copy; 2026 Twój Rytuał Spokoju. Wszelkie prawa zastrzeżone.
-</footer>
+  <footer>
+    &copy; 2026 Twój Rytuał Spokoju. Wszelkie prawa zastrzeżone.
+  </footer>
 
-<script>
-// Pełna baza 100 podnoszących na duchu sentencji
-const fortunes = [
-"Najsilniejsze drzewa rosną przy najsilniejszych wiatrach.",
-"Masz w sobie moc, o której przypomnisz sobie dokładnie wtedy, kiedy będzie najbardziej potrzebna.",
-"Burze nie przychodzą po to, żeby zniszczyć Twoje życie, ale po to, żeby oczyścić Twoją drogę.",
-"Jesteś autorką swojej historii — możesz w każdej chwili postawić kropkę i zacząć nowy akapit.",
-"Twoja wartość nie maleje tylko dlatego, że ktoś nie potrafi jej dostrzec.",
-"Blizny to nie dowód słabości, ale dowód na to, że potrafisz się goić.",
-"Nie musisz widzieć całej drogi. Wystarczy, że zrobisz kolejny, jeden mały krok.",
-"To, co wydaje się końcem, bardzo często jest tylko początkiem czegoś zupełnie nowego.",
-"Przetrwałaś już 100% swoich najtrudniejszych dni. Twój bilans sukcesów jest imponujący.",
-"Jesteś o wiele bardziej odporna, niż podpowiada Ci Twój lęk.",
-"Odwaga nie zawsze krzyczy. Czasami to cichy głos na koniec dnia, który mówi: „Spróbuję jutro ponownie”.",
-"Nie możesz kontrolować kierunku wiatru, ale zawsze możesz odpowiednio ustawić żagle.",
-"Złoto topi się w ogniu, by stać się czyste. Ty też wychodzisz z trudności silniejsza.",
-"Twoja wewnętrzna przestrzeń jest nienaruszalna — żaden zewnętrzny chaos nie ma tam stałego dostępu.",
-"Nawet najcięższa zima zawsze, bez wyjątku, ustępuje miejsca wiośnie.",
-"Wszystko, co wartościowe, wymaga czasu, cierpliwości i zaufania do procesu.",
-"Masz prawo się zachwiać, ale pamiętaj, że Twoje korzenie sięgają głęboko.",
-"To, co nosisz w środku, jest silniejsze niż to, co staje przeciwko Tobie.",
-"Twoje emocje są ważne, ale nie są Tobą — jesteś niebem, przez które one tylko przepływają.",
-"Każde „nie” od losu bywa bardzo często ukrytym przekierowaniem na właściwe tory.",
-"Jesteś wystarczająca dokładnie taka, jaka jesteś w tej właśnie sekundzie.",
-"Daj sobie pozwolenie na to, by być nieidealnym dziełem w procesie tworzenia.",
-"Twoja produktywność nie definiuje Twojej ludzkiej wartości.",
-"Bądź dla siebie tak dobra i wyrozumiała, jak byłabyś dla kogoś, kogo najmocniej kochasz.",
-"Odpoczynek to nie nagroda za ciężką pracę — to Twoje fundamentalne prawo.",
-"Możesz kochać siebie i jednocześnie chcieć się zmieniać. Jedno nie wyklucza drugiego.",
-"Twoje granice chronią Twoją energię, a nie ranią innych. Masz prawo je stawiać.",
-"Nic nie musisz udowadniać światu. Wystarczy, że żyjesz w zgodzie ze sobą.",
-"Zwolnij. Świat poczeka, a Twoje zdrowie psychiczne i spokój są bezcenne.",
-"To normalne, że czasem nie wiesz, co robić. Pozwól sobie na niewiedzę.",
-"Przestań karać się za błędy z przeszłości — działałaś wtedy najlepiej, jak potrafiłaś, z wiedzą, którą miałaś.",
-"Twoje ciało to Twój dom, a nie projekt do nieustannego poprawiania.",
-"Zasługujesz na miłość, czułość i szacunek — przede wszystkim od samej siebie.",
-"Mów do siebie szeptem pełnym wsparcia, a nie krzykiem pełnym krytyki.",
-"Nie musisz nosić całego świata na swoich barkach. Odłóż ten ciężar choć na chwilę.",
-"Każdy dzień to nowa szansa na to, by zacząć od nowa, bez bagażu wczorajszych potknięć.",
-"Twoja wrażliwość to nie wada — to Twoja największa supermoc i kompas.",
-"Możesz powiedzieć „nie” rzeczom, które zabierają Ci spokój ducha.",
-"Zaopiekuj się najpierw sobą. Nie nalejesz wody z pustego dzbana.",
-"Jesteś jedyna w swoim rodzaju. Twoja perspektywa i Twoja obecność mają znaczenie.",
-"Natura nigdzie się nie spieszy, a wszystko w niej dzieje się na czas.",
-"Oddychaj. Ten moment jest jedynym, który naprawdę istnieje.",
-"Pozwól rzeczom płynąć naturalnym rytmem. Nie wszystko wymaga Twojej natychmiastowej interwencji.",
-"Pokój nie oznacza braku burzy wokół Ciebie — oznacza spokój w Twoim sercu.",
-"Oczyszczenie przestrzeni wokół siebie przynosi jasność umysłowi.",
-"Wszystko przemija — zarówno to, co trudne, jak i to, co piękne. Przyjmij to z wdzięcznością.",
-"Szukaj piękna w prostych, codziennych rzeczach: kropli deszczu, świetle słońca, łyku ciepłej herbaty.",
-"Kiedy uciszasz umysł, zaczynasz słyszeć odpowiedzi, których tak długo szukałaś.",
-"Zaufaj biegowi wydarzeń. Wszechświat ma tendencję do układania się w harmonijną całość.",
-"Żyj tak, by Twoje wnętrze było pełne ładu i czystego światła.",
-"Energia podąża za Twoją uwagą — skupiaj ją na tym, co Cię karmi i buduje.",
-"Cisza nie jest pusta. Jest pełna odpowiedzi.",
-"Bądź jak woda: miękka, elastyczna, ale zdolna drążyć najtwardsze skały.",
-"Każda chwila uważności to krok w stronę głębokiego ukojenia.",
-"Nie goń za rzeczami, które zakłócają Twój wewnętrzny ekosystem.",
-"Harmonia to nie stan idealny, to ciągły powrót do równowagi po każdym zachwianiu.",
-"Your życie staje się lżejsze, kiedy przestajesz walczyć z tym, na co nie masz wpływu.",
-"Znajdź swój własny, nieśpieszny rytm i nie daj się z niego wybić chaosowi świata.",
-"Najpiękniejsze rzeczy rodzą się w ciszy i skupieniu.",
-"Otaczaj się tym, co wnosi do Twojego życia lekkość, świeżość i naturalne piękno.",
-"Tworzenie to akt odwagi. Każda Twoja kreacja zmienia świat na lepsze.",
-"Twój unikalny głos i styl są potrzebne — nikt inny nie widzi świata dokładnie tak jak Ty.",
-"Proces jest ważniejszy niż idealny rezultat końcowy. Czerp radość z samej drogi.",
-"Każda pusta kartka, płótno czy przestrzeń to nie powód do lęku, ale obietnica nieskończonych możliwości.",
-"Twoje talenty nie zostały Ci dane przez przypadek — używaj ich, by wnosić światło.",
-"Sukces to nie cel, do którego biegniesz, ale sposób, w jaki idziesz przez życie.",
-"Twoja wyobraźnia to najwspanialsze narzędzie transformacji rzeczywistości, jakie posiadasz.",
-"Nie bój się tworzyć rzeczy, które są inne, nieszablonowe i całkowicie Twoje.",
-"Inspiracja jest wszędzie wokół nas — wystarczy zwolnić i spojrzeć na świat świeżym okiem.",
-"Każde wielkie dzieło zaczynało się od jednej, małej i niepewnej myśli.",
-"Twoja pasja to paliwo dla Twojej profesji i duszy — nigdy nie pozwól jej zgasnąć.",
-"Projektuj swoje życie z taką samą dbałością o detal i harmonię, z jaką tworzysz swoje najlepsze projekty.",
-"Popełnianie błędów w sztuce i życiu to po prostu zbieranie cennych danych do kolejnej próby.",
-"Twoja wrażliwość estetyczna to dar, który pozwala Ci widzieć magię tam, gdzie inni widzą zwyczajność.",
-"Nie porównuj swojego początku z czyimś środkiem drogi. Twój proces ma własną linię czasu.",
-"Kiedy tworzysz z serca, ludzie to poczują. Autentyczność ma najwyższą wibrację.",
-"Świat profesjonalistów i twórców potrzebuje Twojej wrażliwości, Twoich kolorów i Twoich opowieści.",
-"Masz prawo zmieniać swoje zdanie, swoje plany i swoje artystyczne wizje. Rozwijasz się.",
-"Najbestzym sposobem na przewidzenie przyszłości jest jej samodzielne zaprojektowanie.",
-"Każde doświadczenie, nawet to bolesne, wzbogaca paletę barw, z której możesz tworzyć.",
-"Jutro przyniesie nowe czyste karty, nowe szanse i zupełnie nowe światło.",
-"Najciemniejsza noc przychodzi tuż przed świtem. Światło już do Ciebie idzie.",
-"Wdzięczność za to, co masz teraz, otwiera drzwi dla kolejnych wspaniałych rzeczy.",
-"Małe cuda dzieją się każdego dnia — trzeba tylko pozwolić sobie je zauważyć.",
-"To, co najlepsze w Twoim życiu, wciąż jeszcze czeka na napisanie i przeżycie.",
-"Nic nie truwa wiecznie — ta trudna chwila również minie i zostawi po sobie czyste niebo.",
-"Nadzieja to nie ślepa wiara, to decyzja, by widzieć potencjał dobra w każdym dniu.",
-"Jesteś prowadzona i bezpieczna, nawet gdy mgła na chwilę przysłania Ci horyzont.",
-"Każde dobre słowo, które wysyłasz w świat, wraca do Ciebie pomnożone.",
-"Życie potrafi zaskoczyć pięknem w najmniej oczekiwanym momencie. Bądź na to otwarta.",
-"Twoje serce potrafi pomieścić o wiele więcej radości, niż jesteś w stanie sobie teraz wyobrazić.",
-"Nie bój się marzyć o wielkich rzeczach — wszechświat sprzyja odważnym pragnieniom.",
-"Każdy mały gest dobroci, jaki okazujesz sobie i innym, tworzy fale pozytywnej zmiany.",
-"Patrz w przyszłość z ciekawością, a nie z lękiem. Czeka tam na Ciebie mnóstwo dobra.",
-"Jesteś otoczona niewidzialnym wsparciem, a Twoja intuicja zawsze wskaże Ci właściwy kierunek.",
-"Światło, którego szukasz na zewnątrz, przez cały czas płonie w Twoim wnętrzu.",
-"Z uśmiechem i spokojem przyjmuj to, co przynosi los — wszystko ma swój głębszy sens.",
-"Twoja obecność na tym świecie robi różnicę. Jesteś ważną częścią tej układanki.",
-"Pozwól sobie na luksus optymizmu. To niesamowicie uwalniająca perspektywa.",
-"Wszystko będzie dobrze. A jeśli jeszcze nie jest dobrze, to znaczy, że to jeszcze nie koniec."
-];
+  <script>
+    // Pełna baza 100 podnoszących na duchu sentencji
+    const fortunes = [
+      "Najsilniejsze drzewa rosną przy najsilniejszych wiatrach.",
+      "Masz w sobie moc, o której przypomnisz sobie dokładnie wtedy, kiedy będzie najbardziej potrzebna.",
+      "Burze nie przychodzą po to, żeby zniszczyć Twoje życie, ale po to, żeby oczyścić Twoją drogę.",
+      "Jesteś autorką swojej historii — możesz w każdej chwili postawić kropkę i zacząć nowy akapit.",
+      "Twoja wartość nie maleje tylko dlatego, że ktoś nie potrafi jej dostrzec.",
+      "Blizny to nie dowód słabości, ale dowód na to, że potrafisz się goić.",
+      "Nie musisz widzieć całej drogi. Wystarczy, że zrobisz kolejny, jeden mały krok.",
+      "To, co wydaje się końcem, bardzo często jest tylko początkiem czegoś zupełnie nowego.",
+      "Przetrwałaś już 100% swoich najtrudniejszych dni. Twój bilans sukcesów jest imponujący.",
+      "Jesteś o wiele bardziej odporna, niż podpowiada Ci Twój lęk.",
+      "Odwaga nie zawsze krzyczy. Czasami to cichy głos na koniec dnia, który mówi: „Spróbuję jutro ponownie”.",
+      "Nie możesz kontrolować kierunku wiatru, ale zawsze możesz odpowiednio ustawić żagle.",
+      "Złoto topi się w ogniu, by stać się czyste. Ty też wychodzisz z trudności silniejsza.",
+      "Twoja wewnętrzna przestrzeń jest nienaruszalna — żaden zewnętrzny chaos nie ma tam stałego dostępu.",
+      "Nawet najcięższa zima zawsze, bez wyjątku, ustępuje miejsca wiośnie.",
+      "Wszystko, co wartościowe, wymaga czasu, cierpliwości i zaufania do procesu.",
+      "Masz prawo się zachwiać, ale pamiętaj, że Twoje korzenie sięgają głęboko.",
+      "To, co nosisz w środku, jest silniejsze niż to, co staje przeciwko Tobie.",
+      "Twoje emocje są ważne, ale nie są Tobą — jesteś niebem, przez które one tylko przepływają.",
+      "Każde „nie” od losu bywa bardzo często ukrytym przekierowaniem na właściwe tory.",
+      "Jesteś wystarczająca dokładnie taka, jaka jesteś w tej właśnie sekundzie.",
+      "Daj sobie pozwolenie na to, by być nieidealnym dziełem w procesie tworzenia.",
+      "Twoja produktywność nie definiuje Twojej ludzkiej wartości.",
+      "Bądź dla siebie tak dobra i wyrozumiała, jak byłabyś dla kogoś, kogo najmocniej kochasz.",
+      "Odpoczynek to nie nagroda za ciężką pracę — to Twoje fundamentalne prawo.",
+      "Możesz kochać siebie i jednocześnie chcieć się zmieniać. Jedno nie wyklucza drugiego.",
+      "Twoje granice chronią Twoją energię, a nie ranią innych. Masz prawo je stawiać.",
+      "Nic nie musisz udowadniać światu. Wystarczy, że żyjesz w zgodzie ze sobą.",
+      "Zwolnij. Świat poczeka, a Twoje zdrowie psychiczne i spokój są bezcenne.",
+      "To normalne, że czasem nie wiesz, co robić. Pozwól sobie na niewiedzę.",
+      "Przestań karać się za błędy z przeszłości — działałaś wtedy najlepiej, jak potrafiłaś, z wiedzą, którą miałaś.",
+      "Twoje ciało to Twój dom, a nie projekt do nieustannego poprawiania.",
+      "Zasługujesz na miłość, czułość i szacunek — przede wszystkim od samej siebie.",
+      "Mów do siebie szeptem pełnym wsparcia, a nie krzykiem pełnym krytyki.",
+      "Nie musisz nosić całego świata na swoich barkach. Odłóż ten ciężar choć na chwilę.",
+      "Każdy dzień to nowa szansa na to, by zacząć od nowa, bez bagażu wczorajszych potknięć.",
+      "Twoja wrażliwość to nie wada — to Twoja największa supermoc i kompas.",
+      "Możesz powiedzieć „nie” rzeczom, które zabierają Ci spokój ducha.",
+      "Zaopiekuj się najpierw sobą. Nie nalejesz wody z pustego dzbana.",
+      "Jesteś jedyna w swoim rodzaju. Twoja perspektywa i Twoja obecność mają znaczenie.",
+      "Natura nigdzie się nie spieszy, a wszystko w niej dzieje się na czas.",
+      "Oddychaj. Ten moment jest jedynym, który naprawdę istnieje.",
+      "Pozwól rzeczom płynąć naturalnym rytmem. Nie wszystko wymaga Twojej natychmiastowej interwencji.",
+      "Pokój nie oznacza braku burzy wokół Ciebie — oznacza spokój w Twoim sercu.",
+      "Oczyszczenie przestrzeni wokół siebie przynosi jasność umysłowi.",
+      "Wszystko przemija — zarówno to, co trudne, jak i to, co piękne. Przyjmij to z wdzięcznością.",
+      "Szukaj piękna w prostych, codziennych rzeczach: kropli deszczu, świetle słońca, łyku ciepłej herbaty.",
+      "Kiedy uciszasz umysł, zaczynasz słyszeć odpowiedzi, których tak długo szukałaś.",
+      "Zaufaj biegowi wydarzeń. Wszechświat ma tendencję do układania się w harmonijną całość.",
+      "Żyj tak, by Twoje wnętrze było pełne ładu i czystego światła.",
+      "Energia podąża za Twoją uwagą — skupiaj ją na tym, co Cię karmi i buduje.",
+      "Cisza nie jest pusta. Jest pełna odpowiedzi.",
+      "Bądź jak woda: miękka, elastyczna, ale zdolna drążyć najtwardsze skały.",
+      "Każda chwila uważności to krok w stronę głębokiego ukojenia.",
+      "Nie goń za rzeczami, które zakłócają Twój wewnętrzny ekosystem.",
+      "Harmonia to nie stan idealny, to ciągły powrót do równowagi po każdym zachwianiu.",
+      "Your życie staje się lżejsze, kiedy przestajesz walczyć z tym, na co nie masz wpływu.",
+      "Znajdź swój własny, nieśpieszny rytm i nie daj się z niego wybić chaosowi świata.",
+      "Najpiękniejsze rzeczy rodzą się w ciszy i skupieniu.",
+      "Otaczaj się tym, co wnosi do Twojego życia lekkość, świeżość i naturalne piękno.",
+      "Tworzenie to akt odwagi. Każda Twoja kreacja zmienia świat na lepsze.",
+      "Twój unikalny głos i styl są potrzebne — nikt inny nie widzi świata dokładnie tak jak Ty.",
+      "Proces jest ważniejszy niż idealny rezultat końcowy. Czerp radość z samej drogi.",
+      "Każda pusta kartka, płótno czy przestrzeń to nie powód do lęku, ale obietnica nieskończonych możliwości.",
+      "Twoje talenty nie zostały Ci dane przez przypadek — używaj ich, by wnosić światło.",
+      "Sukces to nie cel, do którego biegniesz, ale sposób, w jaki idziesz przez życie.",
+      "Twoja wyobraźnia to najwspanialsze narzędzie transformacji rzeczywistości, jakie posiadasz.",
+      "Nie bój się tworzyć rzeczy, które są inne, nieszablonowe i całkowicie Twoje.",
+      "Inspiracja jest wszędzie wokół nas — wystarczy zwolnić i spojrzeć na świat świeżym okiem.",
+      "Każde wielkie dzieło zaczynało się od jednej, małej i niepewnej myśli.",
+      "Twoja pasja to paliwo dla Twojej profesji i duszy — nigdy nie pozwól jej zgasnąć.",
+      "Projektuj swoje życie z taką samą dbałością o detal i harmonię, z jaką tworzysz swoje najlepsze projekty.",
+      "Popełnianie błędów w sztuce i życiu to po prostu zbieranie cennych danych do kolejnej próby.",
+      "Twoja wrażliwość estetyczna to dar, który pozwala Ci widzieć magię tam, gdzie inni widzą zwyczajność.",
+      "Nie porównuj swojego początku z czyimś środkiem drogi. Twój proces ma własną linię czasu.",
+      "Kiedy tworzysz z serca, ludzie to poczują. Autentyczność ma najwyższą wibrację.",
+      "Świat profesjonalistów i twórców potrzebuje Twojej wrażliwości, Twoich kolorów i Twoich opowieści.",
+      "Masz prawo zmieniać swoje zdanie, swoje plany i swoje artystyczne wizje. Rozwijasz się.",
+      "Najbestzym sposobem na przewidzenie przyszłości jest jej samodzielne zaprojektowanie.",
+      "Każde doświadczenie, nawet to bolesne, wzbogaca paletę barw, z której możesz tworzyć.",
+      "Jutro przyniesie nowe czyste karty, nowe szanse i zupełnie nowe światło.",
+      "Najciemniejsza noc przychodzi tuż przed świtem. Światło już do Ciebie idzie.",
+      "Wdzięczność za to, co masz teraz, otwiera drzwi dla kolejnych wspaniałych rzeczy.",
+      "Małe cuda dzieją się każdego dnia — trzeba tylko pozwolić sobie je zauważyć.",
+      "To, co najlepsze w Twoim życiu, wciąż jeszcze czeka na napisanie i przeżycie.",
+      "Nic nie truwa wiecznie — ta trudna chwila również minie i zostawi po sobie czyste niebo.",
+      "Nadzieja to nie ślepa wiara, to decyzja, by widzieć potencjał dobra w każdym dniu.",
+      "Jesteś prowadzona i bezpieczna, nawet gdy mgła na chwilę przysłania Ci horyzont.",
+      "Każde dobre słowo, które wysyłasz w świat, wraca do Ciebie pomnożone.",
+      "Życie potrafi zaskoczyć pięknem w najmniej oczekiwanym momencie. Bądź na to otwarta.",
+      "Twoje serce potrafi pomieścić o wiele więcej radości, niż jesteś w stanie sobie teraz wyobrazić.",
+      "Nie bój się marzyć o wielkich rzeczach — wszechświat sprzyja odważnym pragnieniom.",
+      "Każdy mały gest dobroci, jaki okazujesz sobie i innym, tworzy fale pozytywnej zmiany.",
+      "Patrz w przyszłość z ciekawością, a nie z lękiem. Czeka tam na Ciebie mnóstwo dobra.",
+      "Jesteś otoczona niewidzialnym wsparciem, a Twoja intuicja zawsze wskaże Ci właściwy kierunek.",
+      "Światło, którego szukasz na zewnątrz, przez cały czas płonie w Twoim wnętrzu.",
+      "Z uśmiechem i spokojem przyjmuj to, co przynosi los — wszystko ma swój głębszy sens.",
+      "Twoja obecność na tym świecie robi różnicę. Jesteś ważną częścią tej układanki.",
+      "Pozwól sobie na luksus optymizmu. To niesamowicie uwalniająca perspektywa.",
+      "Wszystko będzie dobrze. A jeśli jeszcze nie jest dobrze, to znaczy, że to jeszcze nie koniec."
+    ];
 
-const stage = document.getElementById('stage');
-const cookie = document.getElementById('cookie');
-const paper = document.getElementById('paper');
-const fortuneText = document.getElementById('fortuneText');
-const resetBtn = document.getElementById('resetBtn');
+    const stage = document.getElementById('stage');
+    const cookie = document.getElementById('cookie');
+    const paper = document.getElementById('paper');
+    const fortuneText = document.getElementById('fortuneText');
+    const resetBtn = document.getElementById('resetBtn');
 
-let isOpened = false;
+    let isOpened = false;
 
-stage.addEventListener('click', () => {
-if (isOpened) return;
+    stage.addEventListener('click', () => {
+      if (isOpened) return;
 
-isOpened = true;
+      isOpened = true;
 
-// Losowanie sentencji
-const randomIndex = Math.floor(Math.random() * fortunes.length);
-fortuneText.innerText = fortunes[randomIndex];
+      // Losowanie sentencji
+      const randomIndex = Math.floor(Math.random() * fortunes.length);
+      fortuneText.innerText = fortunes[randomIndex];
 
-// Animacja ciasteczka i karteczki
-cookie.classList.add('opened');
+      // Animacja ciasteczka i karteczki
+      cookie.classList.add('opened');
 
-setTimeout(() => {
-paper.classList.add('reveal');
-resetBtn.classList.add('show');
-}, 300);
-});
+      setTimeout(() => {
+        paper.classList.add('reveal');
+        resetBtn.classList.add('show');
+      }, 300);
+    });
 
-resetBtn.addEventListener('click', (e) => {
-e.stopPropagation(); // Zapobiega natychmiastowemu ponownemu kliknięciu sceny
+    resetBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); // Zapobiega natychmiastowemu ponownemu kliknięciu sceny
 
-isOpened = false;
-paper.classList.remove('reveal');
-cookie.classList.remove('opened');
-resetBtn.classList.remove('show');
-});
-</script>
+      isOpened = false;
+      paper.classList.remove('reveal');
+      cookie.classList.remove('opened');
+      resetBtn.classList.remove('show');
+    });
+  </script>
 </body>
+
 </html>
