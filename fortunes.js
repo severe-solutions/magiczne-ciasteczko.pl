@@ -3,7 +3,7 @@ const fortunes = [
   "Najsilniejsze drzewa rosną przy najsilniejszych wiatrach.",
   "Masz w sobie moc, o której przypomnisz sobie dokładnie wtedy, kiedy będzie najbardziej potrzebna.",
   "Burze nie przychodzą po to, żeby zniszczyć Twoje życie, ale po to, żeby oczyścić Twoją drogę.",
-  "Jesteś autorką swojej historii — możesz w każdej chwili postawić kropkę i zacząć nowy akapit.",
+  "Jesteś autorką swojej historii - możesz w każdej chwili postawić kropkę i zacząć nowy akapit.",
   "Twoja wartość nie maleje tylko dlatego, że ktoś nie potrafi jej dostrzec.",
   "Blizny to nie dowód słabości, ale dowód na to, że potrafisz się goić.",
   "Nie musisz widzieć całej drogi. Wystarczy, że zrobisz kolejny, jeden mały krok.",
@@ -32,7 +32,7 @@ const fortunes = [
   "To normalne, że czasem nie wiesz, co robić. Pozwól sobie na niewiedzę.",
   "Przestań karać się za błędy z przeszłości - działałaś wtedy najlepiej, jak potrafiłaś, z wiedzą, którą miałaś.",
   "Twoje ciało to Twój dom, a nie projekt do nieustannego poprawiania.",
-  "Zasługujesz na miłość, czułość i szacunek — przede wszystkim od samej siebie.",
+  "Zasługujesz na miłość, czułość i szacunek - przede wszystkim od samej siebie.",
   "Mów do siebie szeptem pełnym wsparcia, a nie krzykiem pełnym krytyki.",
   "Nie musisz nosić całego świata na swoich barkach. Odłóż ten ciężar choć na chwilę.",
   "Każdy dzień to nowa szansa na to, by zacząć od nowa, bez bagażu wczorajszych potknięć.",
@@ -99,5 +99,7 @@ const fortunes = [
   "Z uśmiechem i spokojem przyjmuj to, co przynosi los — wszystko ma swój głębszy sens.",
   "Twoja obecność na tym świecie robi różnicę. Jesteś ważną częścią tej układanki.",
   "Pozwól sobie na luksus optymizmu. To niesamowicie uwalniająca perspektywa.",
-  "Wszystko będzie dobrze. A jeśli jeszcze nie jest dobrze, to znaczy, że to jeszcze nie koniec."
+  "Wszystko będzie dobrze. A jeśli jeszcze nie jest dobrze, to znaczy, że to jeszcze nie koniec.",
+  "Każdy dzień to nowa okazja do sukcesu",
+  
 ];
