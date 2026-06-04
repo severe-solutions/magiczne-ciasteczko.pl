@@ -139,8 +139,8 @@ header p {
     max-height: 0;
     background: var(--paper-bg);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    border-left: 3px solid var(--gold);
-    border-right: 3px solid var(--gold);
+    border-left: 1px solid var(--gold);
+    border-right: 1px solid var(--gold);
     border-bottom: 1px solid var(--gold);
     border-top: 1px solid var(--gold);
     padding: 0 1.5rem;
